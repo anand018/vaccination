@@ -1,0 +1,17 @@
+server:
+  port: 8082
+  servlet:
+    context-path: /covido/vaccine
+spring:
+  application:
+    name: vaccine
+  profiles:
+    active: develop
+  config:
+    import: configserver:http://localhost:8888
+eureka:
+  client:
+    serviceUrl:
+      defaultZone: ${EUREKA_URI:http://localhost:8761/eureka}
+  instance:
+    preferIpAddress: true
